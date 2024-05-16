@@ -336,6 +336,13 @@ namespace ariel {
         return g1;
     }
 
+    Graph operator*=(Graph &g1, const Graph &g2){
+        Graph g = g1*g2;
+        g1.loadGraph(g.allEdges());
+        return g;
+    }
+
+
     // divide the graph edges weight with x
     Graph &operator/=(Graph &g1, int x) {
         for (unsigned int i = 0; i < g1.numVertices; ++i) {
@@ -409,7 +416,12 @@ namespace ariel {
         Graph g3(adjMatrix3);
         return g3;
     }
-
+    Graph operator*(const Graph &g1, int x){
+        Graph ans;
+        ans.loadGraph(g1.allEdges());
+       ans *= x;
+        return ans;
+    }
     // override the += operator to add to this graph's edges weights another graph's edges weights
     Graph &operator+=(Graph &g1, const Graph &g2) {
         g1.loadGraph((g1 + g2).allEdges());

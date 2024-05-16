@@ -74,6 +74,8 @@ namespace ariel {
 
         //override the - operator to unary -
         friend Graph operator-(Graph &g1);
+
+        friend Graph operator*(const Graph &g1, int x);
     };
 
 
@@ -92,6 +94,9 @@ namespace ariel {
     //override the -= operator to subtract from this graph's edges weights another graph's edges weights
     Graph &operator-=(Graph &g1, const Graph &g2);
 
+    Graph operator*=(Graph &g1, const Graph &g2);
+
+
 
     //override the + operator to unary +
     Graph operator+(const Graph &g1);
@@ -106,6 +111,7 @@ namespace ariel {
 
     //returns a new graph which have adjacency matrix equal to the multiplication of the adjacency matrices of g1,g2
     Graph operator*(const Graph &g1, const Graph &g2);
+
 
     //return True if g1 containing g2 or g1 has more edges or same number of edges and g2 have more vertexes
     bool operator<(const Graph &g1, const Graph &g2);
