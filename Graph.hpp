@@ -58,7 +58,7 @@ namespace ariel {
         //return copy of the adjacency matrix
         std::vector<std::vector<int>> allEdges() const;
 
-    private: // todo: remove private
+
 
         //override the += operator to add to this graph's edges weights some fixed weight
         friend Graph &operator+=(Graph &g1, int x);
