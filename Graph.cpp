@@ -266,26 +266,27 @@ namespace ariel {
         bool contain = numVertexesG1 < numVertexesG2;
         int edgesInG2 = 0;
         int edgesInG1 = 0;
-        for (unsigned int k = 1; k <= numVertexesG2 - numVertexesG1; k++) {
-            bool option1 = true;
-            bool option2 = true;
-            bool option3 = true;
-            for (unsigned int i = 0; i < numVertexesG1; ++i) {
-                for (unsigned int j = 0; j < numVertexesG1; ++j) {
+        if (numVertexesG2 - numVertexesG1 > 0) { // needed because the cooperation inside the for is unsigned
+            for (unsigned int k = 1; k <= numVertexesG2 - numVertexesG1; k++) {
+                bool option1 = true;
+                bool option2 = true;
+                bool option3 = true;
+                for (unsigned int i = 0; i < numVertexesG1; ++i) {
+                    for (unsigned int j = 0; j < numVertexesG1; ++j) {
 
-                    if (adjMatrix1[i][j] != adjMatrix2[i + k][j + k])
-                        option1 = false;
-                    if (adjMatrix1[i][j] != adjMatrix2[i][j + k])
-                        option2 = false;
-                    if (adjMatrix1[i][j] != adjMatrix2[i + k][j])
-                        option3 = false;
+                        if (adjMatrix1[i][j] != adjMatrix2[i + k][j + k])
+                            option1 = false;
+                        if (adjMatrix1[i][j] != adjMatrix2[i][j + k])
+                            option2 = false;
+                        if (adjMatrix1[i][j] != adjMatrix2[i + k][j])
+                            option3 = false;
+                    }
                 }
+                contain = ((option1 || option2) || option3);
+                if (contain)
+                    return true;
             }
-            contain = ((option1 || option2) || option3);
-            if (contain)
-                return true;
         }
-
         // is g2 has more edges?
         for (unsigned int i = 0; i < numVertexesG1; ++i) {
             for (unsigned int j = 0; j < numVertexesG1; ++j) {
@@ -299,6 +300,7 @@ namespace ariel {
                     edgesInG2++;
             }
         }
+
         if (edgesInG2 > edgesInG1)
             return true;
         if (edgesInG2 == edgesInG1)
@@ -336,8 +338,8 @@ namespace ariel {
         return g1;
     }
 
-    Graph operator*=(Graph &g1, const Graph &g2){
-        Graph g = g1*g2;
+    Graph operator*=(Graph &g1, const Graph &g2) {
+        Graph g = g1 * g2;
         g1.loadGraph(g.allEdges());
         return g;
     }
@@ -345,6 +347,8 @@ namespace ariel {
 
     // divide the graph edges weight with x
     Graph &operator/=(Graph &g1, int x) {
+        if(x == 0 )
+            throw std::invalid_argument("cannot divide by 0");
         for (unsigned int i = 0; i < g1.numVertices; ++i) {
             for (unsigned int j = 0; j < g1.numVertices; ++j) {
                 g1.adjacencyMatrix[i][j] /= x;
@@ -416,12 +420,14 @@ namespace ariel {
         Graph g3(adjMatrix3);
         return g3;
     }
-    Graph operator*(const Graph &g1, int x){
+
+    Graph operator*(const Graph &g1, int x) {
         Graph ans;
         ans.loadGraph(g1.allEdges());
-       ans *= x;
+        ans *= x;
         return ans;
     }
+
     // override the += operator to add to this graph's edges weights another graph's edges weights
     Graph &operator+=(Graph &g1, const Graph &g2) {
         g1.loadGraph((g1 + g2).allEdges());
@@ -439,6 +445,7 @@ namespace ariel {
 
     // subtract 1 from the graph edges weight
     Graph &operator--(Graph &g1) { return g1 -= 1; }
+
     Graph operator--(Graph &g1, int postfix) {
         Graph g2 = Graph(g1.allEdges());
         g1 -= 1;
@@ -447,6 +454,7 @@ namespace ariel {
 
     // add 1 to the graph edges weight
     Graph &operator++(Graph &g1) { return g1 += 1; }
+
     Graph operator++(Graph &g1, int postfix) {
         Graph g2 = Graph(g1.allEdges());
         g1 += 1;
