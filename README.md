@@ -75,33 +75,15 @@ To run the Graph Manipulation Project on Linux using the provided Makefile, foll
 
 By following these steps, you can easily compile and run the Graph Manipulation Project on a Linux system using the provided Makefile.
 
-## Usage
-
-### Running the Project
-
-To run the project, compile the provided source files (`Graph.hpp`, `Graph.cpp`, `Algorithms.hpp`, `Demo.cpp`) using a C++ compiler. Execute the compiled binary to see the demonstration of various graph operations and algorithms.
-
 ### Graph Operations
 
 1. Create a graph instance and load data using the provided methods.
 2. Perform graph manipulation operations using overloaded operators (`+`, `-`, `*`, `/`, `+=`, `-=`, `*=`, `/=`, `++`, `--`).
 3. Utilize graph algorithms from the Algorithms class for analysis.
 
-## File Structure
+there are some examples in the demo file.
 
-The project consists of the following files:
-
-- `Graph.hpp`: Header file containing the declaration of the Graph class.
-- `Graph.cpp`: Source file implementing the functionalities of the Graph class.
-- `Algorithms.hpp`: Header file containing declarations of graph algorithms.
-- `Demo.cpp`: Source file demonstrating the usage of the graph operations and algorithms.
 
 ## Contributors
 
-[Your Name]: [Your Email]
-
-## License
-
-[Include License Information]
-
-Feel free to adjust the README according to your preferences and project details.
+ALON SUISSA
