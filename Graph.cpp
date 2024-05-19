@@ -267,24 +267,27 @@ namespace ariel {
         int edgesInG2 = 0;
         int edgesInG1 = 0;
         if (numVertexesG2 - numVertexesG1 > 0) { // needed because the cooperation inside the for is unsigned
-            for (unsigned int k = 1; k <= numVertexesG2 - numVertexesG1; k++) {
-                bool option1 = true;
-                bool option2 = true;
-                bool option3 = true;
-                for (unsigned int i = 0; i < numVertexesG1; ++i) {
-                    for (unsigned int j = 0; j < numVertexesG1; ++j) {
 
-                        if (adjMatrix1[i][j] != adjMatrix2[i + k][j + k])
-                            option1 = false;
-                        if (adjMatrix1[i][j] != adjMatrix2[i][j + k])
-                            option2 = false;
-                        if (adjMatrix1[i][j] != adjMatrix2[i + k][j])
-                            option3 = false;
+            // k and t to move down/right in the big matrix (g2)
+            for (unsigned int k = 0; k <= numVertexesG2 - numVertexesG1; k++) {
+                for (unsigned int t = 0; t <= numVertexesG2 - numVertexesG1; t++) {
+                    contain = true;
+                    if (k == 0 && t == 0) {// don't look for exactly same
+                        contain = false;
+                    }
+                    for (unsigned int i = 0; i < numVertexesG1 && contain; ++i) {
+                        for (unsigned int j = 0; j < numVertexesG1 && contain; ++j) {
+
+
+                            if (adjMatrix1[i][j] != adjMatrix2[i + k][j + t]) {
+                                contain = false;
+                            }
+                        }
+                    }
+                    if (contain) {
+                        return true;
                     }
                 }
-                contain = ((option1 || option2) || option3);
-                if (contain)
-                    return true;
             }
         }
         // is g2 has more edges?
@@ -347,7 +350,7 @@ namespace ariel {
 
     // divide the graph edges weight with x
     Graph &operator/=(Graph &g1, int x) {
-        if(x == 0 )
+        if (x == 0)
             throw std::invalid_argument("cannot divide by 0");
         for (unsigned int i = 0; i < g1.numVertices; ++i) {
             for (unsigned int j = 0; j < g1.numVertices; ++j) {

@@ -383,12 +383,12 @@ TEST_CASE("Test < and >")
 {
     ariel::Graph g1;
     vector<vector<int>> m1 = {
-            {0, 0, 0, 0, 1, 1},
-            {0, 0, 0, 1, 0, 2},
-            {0, 0, 0, 1, 2, 0},
-            {0, 0, 0, 0, 1, 0},
+            {0, 0,  0, 0, 1, 1},
+            {0, 0,  0, 1, 0, 2},
+            {0, 0,  0, 1, 2, 0},
+            {0, 0,  0, 0, 1, 0},
             {0, -1, 0, 0, 0, 0},
-            {2, 0, 0, 0, 1, 0}};
+            {2, 0,  0, 0, 1, 0}};
     g1.loadGraph(m1);
     ariel::Graph g2;
     vector<vector<int>> m2 = {
@@ -416,6 +416,23 @@ TEST_CASE("Test < and >")
             {0, 0, 0}};
     ariel::Graph g6(m6);
 
+
+    vector<vector<int>> m7 = {
+            {0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 1, 0, 1},
+            {0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0}};
+
+    vector<vector<int>> m8 = {
+            {0, 0, 0},
+            {1, 0, 1},
+            {0, 0, 0}};
+
+    ariel::Graph g7(m7);
+    ariel::Graph g8(m8);
+    CHECK((g8 < g7));
     CHECK((g3 < g1));
     CHECK((g2 < g1));
     CHECK((g1 > g3));
@@ -441,12 +458,12 @@ TEST_CASE("Test <= and >=")
 {
     ariel::Graph g1;
     vector<vector<int>> m1 = {
-            {0, 0, 0, 0, 1, 1},
-            {0, 0, 0, 1, 0, 2},
-            {0, 0, 0, 1, 2, 0},
-            {0, 0, 0, 0, 1, 0},
+            {0, 0,  0, 0, 1, 1},
+            {0, 0,  0, 1, 0, 2},
+            {0, 0,  0, 1, 2, 0},
+            {0, 0,  0, 0, 1, 0},
             {0, -1, 0, 0, 0, 0},
-            {2, 0, 0, 0, 1, 0}};
+            {2, 0,  0, 0, 1, 0}};
     g1.loadGraph(m1);
     ariel::Graph g2;
     vector<vector<int>> m2 = {
@@ -504,12 +521,12 @@ TEST_CASE("Test == and !=")
 {
     ariel::Graph g1;
     vector<vector<int>> m1 = {
-            {0, 0, 0, 0, 1, 1},
-            {0, 0, 0, 1, 0, 2},
-            {0, 0, 0, 1, 2, 0},
-            {0, 0, 0, 0, 1, 0},
+            {0, 0,  0, 0, 1, 1},
+            {0, 0,  0, 1, 0, 2},
+            {0, 0,  0, 1, 2, 0},
+            {0, 0,  0, 0, 1, 0},
             {0, -1, 0, 0, 0, 0},
-            {2, 0, 0, 0, 1, 0}};
+            {2, 0,  0, 0, 1, 0}};
     g1.loadGraph(m1);
     ariel::Graph g2;
     vector<vector<int>> m2 = {
@@ -560,8 +577,8 @@ TEST_CASE("Test /=")
     ariel::Graph g2;
     vector<vector<int>> m2 = {
             {0, 10, 1},
-            {4, 0, 2},
-            {1, 2, 0}};
+            {4, 0,  2},
+            {1, 2,  0}};
     g2.loadGraph(m2);
 
     g1 /= 2;
@@ -576,8 +593,8 @@ TEST_CASE("Test /=")
             {0, 5, 0},
             {2, 0, 1},
             {0, 1, 0}};
-    CHECK_EQ(g2.allEdges(),expectedGraph2);
-    CHECK_EQ(g1.allEdges(),expectedGraph1);
+    CHECK_EQ(g2.allEdges(), expectedGraph2);
+    CHECK_EQ(g1.allEdges(), expectedGraph1);
 
 
 }
@@ -619,7 +636,7 @@ TEST_CASE("Invalid operations")
     vector<vector<int>> m7 = {
             {0, 1, 0, 0, 1},
             {1, 0, 1, 0, 0},
-            {0, 1, 0, 1, 0} };
+            {0, 1, 0, 1, 0}};
     ariel::Graph g7;
     CHECK_THROWS(g1 + g6);
     CHECK_THROWS(g1 - g6);
