@@ -56,13 +56,19 @@ To run the Graph Manipulation Project on Linux using the provided Makefile, foll
      ```bash
      make
      ```
-   - This will generate an executable binary file named `demo`.
+   - This will generate an executable binary files named `demo` and `test`.
 
 3. **Execute the Program**:
    - After successful compilation, run the program by executing the generated binary:
      ```bash
      ./demo
      ```
+     for running the `demo` file.
+     or 
+  ```bash
+     ./test
+     ```
+  for running the `test` file.
 
 4. **Explore Graph Operations and Algorithms**:
    - Once the program is running, follow the on-screen instructions to interact with the graph operations and algorithms demonstrated in the `Demo.cpp` file.
