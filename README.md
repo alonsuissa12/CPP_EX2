@@ -17,24 +17,21 @@ The Graph class is the core component of this project. It is implemented using a
 
 ### Operator Overloading Explanation
 
-In the Graph Manipulation Project, operator overloading is utilized to provide intuitive and concise syntax for performing graph manipulation operations. Here's an explanation of why certain functions are overloaded as member functions and why some are declared as `friend` functions:
+In the Graph Manipulation Project, certain functions are declared as `friend` functions for operator overloading because they need access to the private variables of the `Graph` class, even though they don't logically belong to the `Graph` class itself. Here's why:
 
-1. **Member Functions**: 
-   - Member functions are overloaded for operators that primarily operate on the internal state of the `Graph` class.
-   - These operators directly manipulate the graph data structure and its properties.
-   - Overloading these operators as member functions allows them to access the private members of the `Graph` class directly.
+1. **Accessing Private Variables**:
+   - Operator overloading functions like `+`, `-`, `*`, and `/` require access to the private variables of the `Graph` class to perform their operations.
+   - These operators need to access the adjacency matrix or other internal data structures of the `Graph` class to carry out their functionality.
 
-2. **Friend Functions**:
-   - Friend functions are used to overload operators that require access to the private members of the `Graph` class but do not directly modify its state.
-   - These operators often perform operations that involve two `Graph` objects or combine a `Graph` object with another data type.
-   - By declaring them as `friend` functions, they gain access to the private members of the `Graph` class without being members of the class itself.
-   - This approach maintains encapsulation while providing access to necessary internal details for specific operations.
+2. **Logical Association**:
+   - While these operators are crucial for manipulating and interacting with graph objects, they may not logically belong as member functions of the `Graph` class.
+   - For example, adding or subtracting two graphs is a binary operation that involves two graph objects. It's more intuitive to implement these operations as standalone functions rather than as member functions of one of the graph objects.
 
-For example:
-- **Member Function Overloading**: Operators like `+=`, `-=` are overloaded as member functions because they directly modify the state of the graph object.
-- **Friend Function Overloading**: Operators like `+`, `-`, `*`, `/` are overloaded as friend functions because they require access to the internal structure of the graph objects but do not directly modify their state.
+3. **Maintaining Encapsulation**:
+   - Declaring these functions as `friend` allows them to access the private variables of the `Graph` class without violating encapsulation.
+   - By making them `friend` functions, the Graph class explicitly grants access to these specific functions, maintaining control over which external functions can interact with its private members.
 
-By carefully selecting between member functions and friend functions for operator overloading, the Graph Manipulation Project ensures a balance between encapsulation and flexibility in utilizing operators for graph manipulation.
+By using `friend` functions for operator overloading, the Graph Manipulation Project achieves a balance between encapsulation and functionality, ensuring that essential operations can be performed on graph objects without compromising data integrity or security.
 
 
 ### Algorithms
