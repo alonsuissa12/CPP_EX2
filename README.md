@@ -15,6 +15,28 @@ The Graph class is the core component of this project. It is implemented using a
 - **Graph Properties**: Provides methods to determine whether the graph is directed, weighted, or contains negative edges.
 - **Operator Overloading**: Implements various operators for graph manipulation, such as addition, subtraction, multiplication, and division. Unary operators for negation and increment/decrement are also supported.
 
+### Operator Overloading Explanation
+
+In the Graph Manipulation Project, operator overloading is utilized to provide intuitive and concise syntax for performing graph manipulation operations. Here's an explanation of why certain functions are overloaded as member functions and why some are declared as `friend` functions:
+
+1. **Member Functions**: 
+   - Member functions are overloaded for operators that primarily operate on the internal state of the `Graph` class.
+   - These operators directly manipulate the graph data structure and its properties.
+   - Overloading these operators as member functions allows them to access the private members of the `Graph` class directly.
+
+2. **Friend Functions**:
+   - Friend functions are used to overload operators that require access to the private members of the `Graph` class but do not directly modify its state.
+   - These operators often perform operations that involve two `Graph` objects or combine a `Graph` object with another data type.
+   - By declaring them as `friend` functions, they gain access to the private members of the `Graph` class without being members of the class itself.
+   - This approach maintains encapsulation while providing access to necessary internal details for specific operations.
+
+For example:
+- **Member Function Overloading**: Operators like `+=`, `-=` are overloaded as member functions because they directly modify the state of the graph object.
+- **Friend Function Overloading**: Operators like `+`, `-`, `*`, `/` are overloaded as friend functions because they require access to the internal structure of the graph objects but do not directly modify their state.
+
+By carefully selecting between member functions and friend functions for operator overloading, the Graph Manipulation Project ensures a balance between encapsulation and flexibility in utilizing operators for graph manipulation.
+
+
 ### Algorithms
 
 The project includes an Algorithms class that provides several graph algorithms for analysis:
