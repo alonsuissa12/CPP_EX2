@@ -33,7 +33,7 @@ The `Graph` class overloads several operators to provide intuitive functionality
 
 - **Binary `+` and `-`**: Binary operators `+` and `-` are overloaded to perform addition and subtraction operations between two graphs. These operators facilitate combining or subtracting the edge weights of two graphs.
 
-- **Comparison Operators**: Various comparison operators (`<`, `>`, `==`, `!=`, `<=`, `>=`) are overloaded to compare graphs based on their adjacency matrices, edge weights, and number of vertices.
+- **Comparison Operators**: Various comparison operators (`<`, `>`, `==`, `!=`, `<=`, `>=`) are overloaded to compare graphs based on their adjacency matrices (containity), number of edges, and number of vertices.
 
 ## How to Use
 
