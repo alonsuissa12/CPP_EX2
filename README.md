@@ -1,51 +1,57 @@
-# Graph Library
+# Graph Manipulation Project
 
-The Graph Library is a C++ library for handling graphs, providing functionalities for creating, manipulating, and analyzing graphs. This README file provides an overview of the library, its functionalities, implementation decisions, and instructions on how to use it.
+## Overview
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Implementation](#implementation)
-- [Operator Overloading](#operator-overloading)
-- [How to Use](#how-to-use)
-- [Conclusion](#conclusion)
-
-## Introduction
-
-The Graph Library is designed to handle various types of graphs, including directed and undirected, weighted and unweighted, with or without cycles. It provides functionalities for creating graphs, loading data into them, performing operations like addition, subtraction, multiplication, and division on graphs, checking connectivity, finding cycles, finding the shortest path, and determining bipartiteness.
+This project implements a Graph data structure along with various operations for manipulation and analysis. The primary goal is to provide a flexible and efficient tool for working with graphs, allowing users to perform tasks such as graph addition, subtraction, multiplication, division, finding cycles, checking connectivity, and more.
 
 ## Implementation
 
-The library is implemented using C++ and consists of three main components:
+### Graph Structure
 
-1. **Graph.hpp**: This header file defines the `Graph` class along with its member functions and operator overloads. It includes functionalities for creating a graph, loading data into it, printing the graph, checking properties like directedness, weightedness, and presence of negative edges, and performing various operations on graphs.
+The Graph class is the core component of this project. It is implemented using an adjacency matrix representation for efficient edge lookups and modifications. Key features of the Graph class include:
 
-2. **Graph.cpp**: This source file contains the implementation of the member functions and operator overloads defined in `Graph.hpp`. It includes constructors, destructor, methods for loading data, checking properties, performing operations like addition, subtraction, multiplication, and division, and overloads the stream insertion operator for printing graphs.
+- **Constructor**: Supports the creation of an empty graph or initialization from a provided adjacency matrix.
+- **Edge Manipulation**: Allows loading new data into the graph, accessing neighbors of a vertex, and retrieving the adjacency matrix.
+- **Graph Properties**: Provides methods to determine whether the graph is directed, weighted, or contains negative edges.
+- **Operator Overloading**: Implements various operators for graph manipulation, such as addition, subtraction, multiplication, and division. Unary operators for negation and increment/decrement are also supported.
 
-3. **Algorithms.hpp**: This header file defines the `Algorithms` class, which includes static methods for performing various algorithms on graphs such as checking connectivity, finding cycles, finding the shortest path, determining bipartiteness, and identifying negative cycles.
+### Algorithms
 
-## Operator Overloading
+The project includes an Algorithms class that provides several graph algorithms for analysis:
 
-The `Graph` class overloads several operators to provide intuitive functionality for graph manipulation:
+- **Connectivity**: Determines whether a graph is connected.
+- **Cycle Detection**: Identifies cycles within a graph.
+- **Shortest Path**: Finds the shortest path between two vertices.
+- **Bipartiteness Check**: Determines whether a graph is bipartite.
+- **Negative Cycle Detection**: Identifies negative cycles in the graph.
 
-- **`+=`, `-=`, `*=`, `/=`**: These operators are overloaded to perform addition, subtraction, multiplication, and division operations on graphs respectively. They allow modifying the weights of edges in the graph.
+## Usage
 
-- **Unary `+` and `-`**: Unary operators `+` and `-` are overloaded to provide functionality for obtaining the absolute values of graph edge weights and negating them respectively.
+### Running the Project
 
-- **Binary `+` and `-`**: Binary operators `+` and `-` are overloaded to perform addition and subtraction operations between two graphs. These operators facilitate combining or subtracting the edge weights of two graphs.
+To run the project, compile the provided source files (`Graph.hpp`, `Graph.cpp`, `Algorithms.hpp`, `Demo.cpp`) using a C++ compiler. Execute the compiled binary to see the demonstration of various graph operations and algorithms.
 
-- **Comparison Operators**: Various comparison operators (`<`, `>`, `==`, `!=`, `<=`, `>=`) are overloaded to compare graphs based on their adjacency matrices (containity), number of edges, and number of vertices.
+### Graph Operations
 
-## How to Use
+1. Create a graph instance and load data using the provided methods.
+2. Perform graph manipulation operations using overloaded operators (`+`, `-`, `*`, `/`, `+=`, `-=`, `*=`, `/=`, `++`, `--`).
+3. Utilize graph algorithms from the Algorithms class for analysis.
 
-To use the Graph Library in your project, follow these steps:
+## File Structure
 
-1. Include the `Graph.hpp` header file in your source files.
-2. Create instances of the `Graph` class and load data into them using the provided methods.
-3. Perform operations on graphs using the overloaded operators or by calling the member functions of the `Graph` class.
-4. Utilize the `Algorithms` class to perform various graph algorithms like connectivity checking, cycle detection, shortest path finding, etc.
+The project consists of the following files:
 
-## Conclusion
+- `Graph.hpp`: Header file containing the declaration of the Graph class.
+- `Graph.cpp`: Source file implementing the functionalities of the Graph class.
+- `Algorithms.hpp`: Header file containing declarations of graph algorithms.
+- `Demo.cpp`: Source file demonstrating the usage of the graph operations and algorithms.
 
-The Graph Library provides a comprehensive set of functionalities for handling graphs efficiently in C++. Whether you need to create, manipulate, or analyze graphs, this library offers intuitive interfaces and powerful algorithms to simplify your tasks.
+## Contributors
 
-For more detailed usage instructions and examples, refer to the documentation and demo files provided with the library.
+[Your Name]: [Your Email]
+
+## License
+
+[Include License Information]
+
+Feel free to adjust the README according to your preferences and project details.
