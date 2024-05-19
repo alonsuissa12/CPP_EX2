@@ -46,6 +46,31 @@ The project includes an Algorithms class that provides several graph algorithms 
 
 ## Usage
 
+#### Running on Linux with Makefile
+
+To run the Graph Manipulation Project on Linux using the provided Makefile, follow these steps:
+
+2. **Compile the Source Files**:
+   - Open a terminal window and navigate to the project directory.
+   - Use the `make` command to compile the source files:
+     ```bash
+     make
+     ```
+   - This will generate an executable binary file named `demo`.
+
+3. **Execute the Program**:
+   - After successful compilation, run the program by executing the generated binary:
+     ```bash
+     ./demo
+     ```
+
+4. **Explore Graph Operations and Algorithms**:
+   - Once the program is running, follow the on-screen instructions to interact with the graph operations and algorithms demonstrated in the `Demo.cpp` file.
+
+By following these steps, you can easily compile and run the Graph Manipulation Project on a Linux system using the provided Makefile.
+
+## Usage
+
 ### Running the Project
 
 To run the project, compile the provided source files (`Graph.hpp`, `Graph.cpp`, `Algorithms.hpp`, `Demo.cpp`) using a C++ compiler. Execute the compiled binary to see the demonstration of various graph operations and algorithms.
