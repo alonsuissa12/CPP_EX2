@@ -64,7 +64,7 @@ To run the Graph Manipulation Project on Linux using the provided Makefile, foll
      ./demo
      ```
    -for running the `demo` file.
-   -or 
+   or:
      ```bash
      ./test
      ```
