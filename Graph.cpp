@@ -335,9 +335,9 @@ namespace ariel {
                 g1.adjacencyMatrix[i][j] *= x;
             }
         }
-        g1.isDirectedSelf();
-        g1.isWeightedSelf();
-        g1.includeNegativeSelf();
+        g1.directed = g1.isDirectedSelf();
+        g1.wighted = g1.isWeightedSelf();
+        g1.negative = g1.includeNegativeSelf();
         return g1;
     }
 
@@ -357,9 +357,9 @@ namespace ariel {
                 g1.adjacencyMatrix[i][j] /= x;
             }
         }
-        g1.isDirectedSelf();
-        g1.isWeightedSelf();
-        g1.includeNegativeSelf();
+        g1.directed = g1.isDirectedSelf();
+        g1.wighted = g1.isWeightedSelf();
+        g1.negative = g1.includeNegativeSelf();
         return g1;
     }
 

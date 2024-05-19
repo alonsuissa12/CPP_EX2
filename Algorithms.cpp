@@ -250,7 +250,7 @@ void Algorithms::printCycle(const std::vector<int> &cycle) {
 
 
 // Function to divide the graph into two groups of vertices such that the graph is Bipartite
-std::pair<std::vector<int>, std::vector<int>> Algorithms::isBipartite(Graph &g) {
+    std::pair<std::vector<int>, std::vector<int>> Algorithms::isBipartite(Graph &g) {
     std::vector<std::vector<int>> adjacencyMatrix = g.allEdges();
     std::pair<std::vector<int>, std::vector<int>> division;
     int numVertices = g.numOfVertices();
@@ -269,8 +269,8 @@ std::pair<std::vector<int>, std::vector<int>> Algorithms::isBipartite(Graph &g) 
                 q.pop();
 
                 for (unsigned int v = 0; v < numVertices; ++v) {
-                    if (adjacencyMatrix[(long unsigned int) u][v] ||
-                        adjacencyMatrix[v][(long unsigned int) u]) { // for bipartite we ignore direction
+                    if (adjacencyMatrix[( unsigned int) u][v] ||
+                        adjacencyMatrix[v][( unsigned int) u]) { // for bipartite we ignore direction
                         if (color[v] == -1) {
                             color[v] = 1 - color[(unsigned int) u]; // color opposite to u
                             q.push((int) v);
@@ -379,8 +379,9 @@ std::vector<int> Algorithms::negativeCycle(Graph &g) {
         for (unsigned int i = 0; i < numOfVertices; ++i) {
             for (unsigned int j = 0; j < numOfVertices; ++j) {
 
-                if (adjMatrix[i][j] != 0 && adjMatrix[i][j] + distance[i] < distance[j])
+                if (adjMatrix[i][j] != 0 && adjMatrix[i][j] + distance[i] < distance[j]) {
                     curVertex = (int) i;
+                }
             }
         }
 
