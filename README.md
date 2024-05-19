@@ -63,12 +63,12 @@ To run the Graph Manipulation Project on Linux using the provided Makefile, foll
      ```bash
      ./demo
      ```
-     for running the `demo` file.
-     or 
-  ```bash
+   -for running the `demo` file.
+   -or 
+     ```bash
      ./test
      ```
-  for running the `test` file.
+   -for running the `test` file.
 
 4. **Explore Graph Operations and Algorithms**:
    - Once the program is running, follow the on-screen instructions to interact with the graph operations and algorithms demonstrated in the `Demo.cpp` file.
